@@ -38,7 +38,11 @@ impl ThreadPool {
     {
         let job = Box::new(f);
 
-        self.sender.as_ref().unwrap().send(job).unwrap();
+        self.sender
+            .as_ref()
+            .unwrap()
+            .send(job)
+            .expect("Can't send job!");
     }
 }
 
